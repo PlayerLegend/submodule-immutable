@@ -1,8 +1,8 @@
 #include <string.h>
+#include <assert.h>
 #define FLAT_INCLUDES
 #include "../../range/def.h"
 #include "../immutable.h"
-#include "../../debug/debug.h"
 
 void test_immutable_string()
 {
