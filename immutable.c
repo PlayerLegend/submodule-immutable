@@ -71,7 +71,7 @@ immutable_text immutable_path (immutable_namespace * namespace, const char * pat
     return (immutable_text) { ret };
 }
 
-immutable_text immutable_range (immutable_namespace * namespace, const range_const_char * input)
+immutable_text immutable_string_range (immutable_namespace * namespace, const range_const_char * input)
 {
     if (!namespace)
     {
@@ -83,4 +83,18 @@ immutable_text immutable_range (immutable_namespace * namespace, const range_con
     assert (*namespace->tmp_string.region.end == '\0');
 
     return immutable_string (namespace, namespace->tmp_string.region.begin);
+}
+
+immutable_text immutable_path_range (immutable_namespace * namespace, const range_const_char * input)
+{
+    if (!namespace)
+    {
+	namespace = &_default_namespace;
+    }
+
+    window_strcpy_range (&namespace->tmp_string, input);
+
+    assert (*namespace->tmp_string.region.end == '\0');
+
+    return immutable_path (namespace, namespace->tmp_string.region.begin);
 }

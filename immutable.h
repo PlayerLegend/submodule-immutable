@@ -10,5 +10,6 @@ typedef struct {
     immutable_text;
 
 immutable_text immutable_string (immutable_namespace * namespace, const char * input);
-immutable_text immutable_range (immutable_namespace * namespace, const range_const_char * input);
+immutable_text immutable_string_range (immutable_namespace * namespace, const range_const_char * input);
 immutable_text immutable_path (immutable_namespace * namespace, const char * path);
+immutable_text immutable_path_range (immutable_namespace * namespace, const range_const_char * path);
