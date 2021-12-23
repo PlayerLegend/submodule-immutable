@@ -13,3 +13,5 @@ immutable_text immutable_string (immutable_namespace * namespace, const char * i
 immutable_text immutable_string_range (immutable_namespace * namespace, const range_const_char * input);
 immutable_text immutable_path (immutable_namespace * namespace, const char * path);
 immutable_text immutable_path_range (immutable_namespace * namespace, const range_const_char * path);
+immutable_namespace * immutable_namespace_new();
+void immutable_namespace_free (immutable_namespace * target);

@@ -98,3 +98,16 @@ immutable_text immutable_path_range (immutable_namespace * namespace, const rang
 
     return immutable_path (namespace, namespace->tmp_string.region.begin);
 }
+
+immutable_namespace * immutable_namespace_new()
+{
+    return calloc (1, sizeof(immutable_namespace));
+}
+
+void immutable_namespace_free (immutable_namespace * target)
+{
+    table_string_clear (target->table);
+    pthread_mutex_destroy (&target->mutex);
+    window_clear (target->tmp_string);
+    free (target);
+}
